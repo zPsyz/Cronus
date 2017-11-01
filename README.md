@@ -42,15 +42,25 @@ PS: Certificar-se de realizar o download dos pacotes de acordo com a arquitetura
 
 ###### Administradores
 
-- SlexFire
 - Roberto
+
+###### Coordenação
+
+- MaatSF (Desenvolvimento)
+- Pixel (Comunidade)
 
 ###### Desenvolvedores
 
-- Matsuy (Core/Script)
-- Evanio (Core/Script)
+- Denner
+- Evanio
+- Envolvents
+- Mihael
+- ragnaproxy
+- Wolf
 
 ###### Moderadores
 
-- Spell Master
 - Psyz
+- Lecter
+- Tonnynho
+

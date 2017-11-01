@@ -7,22 +7,22 @@
 //                   \____/_|  \___/|_| |_|\__,_|___/               ||
 //                        Source - 2016                             ||
 //==================================================================||
-// = Código Base:                                                   ||
+// = CÃ³digo Base:                                                   ||
 // - eAthena/Hercules/Cronus                                        ||
 //==================================================================||
 // = Sobre:                                                         ||
-// Este software é livre: você pode redistribuí-lo e/ou modificá-lo ||
+// Este software Ã© livre: vocÃª pode redistribuÃ­-lo e/ou modificÃ¡-lo ||
 // sob os termos da GNU General Public License conforme publicada   ||
-// pela Free Software Foundation, tanto a versão 3 da licença, ou   ||
-// (a seu critério) qualquer versão posterior.                      ||
+// pela Free Software Foundation, tanto a versÃ£o 3 da licenÃ§a, ou   ||
+// (a seu critÃ©rio) qualquer versÃ£o posterior.                      ||
 //                                                                  ||
-// Este programa é distribuído na esperança de que possa ser útil,  ||
-// mas SEM QUALQUER GARANTIA; mesmo sem a garantia implícita de     ||
-// COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO FIM. Veja a        ||
-// GNU General Public License para mais detalhes.                   ||
+// Este programa Ã© distribuÃ­do na esperanÃ§a de que possa ser Ãºtil,  ||
+//Â mas SEM QUALQUER GARANTIA; mesmo sem a garantia implÃ­cita de     ||
+//Â COMERCIALIZAÃ‡ÃƒO ou ADEQUAÃ‡ÃƒO A UM DETERMINADO FIM. Veja a        ||
+//Â GNU General Public License para mais detalhes.                   ||
 //                                                                  ||
-// Você deve ter recebido uma cópia da Licença Pública Geral GNU    ||
-// juntamente com este programa. Se não, veja:                      ||
+// VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU    ||
+// juntamente com este programa. Se nÃ£o, veja:                      ||
 // <http://www.gnu.org/licenses/>.                                  ||
 //==================================================================*/
 
@@ -84,7 +84,12 @@ struct hplugin_data_store;
 #define RFIFOSKIP(fd, len) (sockt->rfifoskip(fd, len))
 
 /* [Ind/Hercules] */
-#define RFIFO2PTR(fd) (void*)(sockt->session[fd]->rdata + sockt->session[fd]->rdata_pos)
+#define RFIFO2PTR(fd) ((const void *)(sockt->session[fd]->rdata + sockt->session[fd]->rdata_pos))
+#define RP2PTR(fd) RFIFO2PTR(fd)
+
+/* [Hemagx/Hercules] */
+#define WFIFO2PTR(fd) ((void *)(sockt->session[fd]->wdata + sockt->session[fd]->wdata_size))
+#define WP2PTR(fd) WFIFO2PTR(fd)
 
 // buffer I/O macros
 #define RBUFP(p,pos) (((uint8*)(p)) + (pos))
