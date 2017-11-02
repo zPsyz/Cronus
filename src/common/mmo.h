@@ -71,14 +71,14 @@
 // 20120307 - 2012-03-07aRagexeRE+ - 0x970
 
 #ifndef PACKETVER
-	#define PACKETVER 20141022
+#define PACKETVER 20151022
 #endif // PACKETVER
 
 //Uncomment the following line if your client is ragexeRE instead of ragexe (required because of conflicting packets in ragexe vs ragexeRE).
 //#define ENABLE_PACKETVER_RE
 #ifdef ENABLE_PACKETVER_RE
-	#define PACKETVER_RE
-	#undef ENABLE_PACKETVER_RE
+#define PACKETVER_RE
+#undef ENABLE_PACKETVER_RE
 #endif // DISABLE_PACKETVER_RE
 
 // Client support for experimental RagexeRE UI present in 2012-04-10 and 2012-04-18
@@ -95,14 +95,14 @@
 #define HOTKEY_SAVING
 
 #if PACKETVER < 20090603
-	// (27 = 9 skills x 3 bars)               (0x02b9,191)
-	#define MAX_HOTKEYS 27
+// (27 = 9 skills x 3 bars)               (0x02b9,191)
+#define MAX_HOTKEYS 27
 #elif PACKETVER < 20090617
-	// (36 = 9 skills x 4 bars)               (0x07d9,254)
-	#define MAX_HOTKEYS 36
+// (36 = 9 skills x 4 bars)               (0x07d9,254)
+#define MAX_HOTKEYS 36
 #else // >= 20090617
-	// (38 = 9 skills x 4 bars & 2 Quickslots)(0x07d9,268)
-	#define MAX_HOTKEYS 38
+// (38 = 9 skills x 4 bars & 2 Quickslots)(0x07d9,268)
+#define MAX_HOTKEYS 38
 #endif // 20090603
 #endif // 20070227
 
@@ -122,12 +122,12 @@
 #define MAX_SLOTS 4
 //Max amount of a single stacked item
 #define MAX_AMOUNT 30000
-#define MAX_ZENY 1000000000
+#define MAX_ZENY 2000000000
 
 //Official Limit: 2.1b ( the var that stores the money doesn't go much higher than this by default )
 #define MAX_BANK_ZENY INT_MAX
 
-#define MAX_LEVEL 175
+#define MAX_LEVEL 999
 #define MAX_FAME 1000000000
 #define MAX_CART 100
 #define MAX_SKILL 1478
@@ -137,10 +137,10 @@
 #define DEFAULT_WALK_SPEED 150
 #define MIN_WALK_SPEED 20 /* below 20 clips animation */
 #define MAX_WALK_SPEED 1000
-#define MAX_STORAGE 600
-#define MAX_GUILD_STORAGE 600
+#define MAX_STORAGE 800
+#define MAX_GUILD_STORAGE 1200
 #define MAX_PARTY 12
-#define BASE_GUILD_SIZE 16               // Base guild members (without GD_EXTENSION)
+#define BASE_GUILD_SIZE 10               // Base guild members (without GD_EXTENSION)
 #define MAX_GUILD (BASE_GUILD_SIZE+10*6) // Increased max guild members +6 per 1 extension levels [Lupus]
 #define MAX_GUILDPOSITION 20             // Increased max guild positions to accomodate for all members [Valaris] (removed) [PoW]
 #define MAX_GUILDEXPULSION 32
@@ -174,7 +174,7 @@
 //Tamanho do nome dos NPCs (Max 32 caracteres)
 #define NOME_NPC_LEN (31 + 1) //[SlexFire]
 
-#define MAX_FRIENDS 40
+#define MAX_FRIENDS 50
 #define MAX_MEMOPOINTS 3
 
 // Size of the fame list arrays.
@@ -277,33 +277,33 @@ struct item {
 
 //Equip position constants
 enum equip_pos {
-	EQP_HEAD_LOW           = 0x000001,
-	EQP_HEAD_MID           = 0x000200, //512
-	EQP_HEAD_TOP           = 0x000100, //256
-	EQP_HAND_R             = 0x000002, //2
-	EQP_HAND_L             = 0x000020, //32
-	EQP_ARMOR              = 0x000010, //16
-	EQP_SHOES              = 0x000040, //64
-	EQP_GARMENT            = 0x000004, //4
-	EQP_ACC_L              = 0x000008, //8
-	EQP_ACC_R              = 0x000080, //128
-	EQP_COSTUME_HEAD_TOP   = 0x000400, //1024
-	EQP_COSTUME_HEAD_MID   = 0x000800, //2048
-	EQP_COSTUME_HEAD_LOW   = 0x001000, //4096
-	EQP_COSTUME_GARMENT    = 0x002000, //8192
+	EQP_HEAD_LOW = 0x000001,
+	EQP_HEAD_MID = 0x000200, //512
+	EQP_HEAD_TOP = 0x000100, //256
+	EQP_HAND_R = 0x000002, //2
+	EQP_HAND_L = 0x000020, //32
+	EQP_ARMOR = 0x000010, //16
+	EQP_SHOES = 0x000040, //64
+	EQP_GARMENT = 0x000004, //4
+	EQP_ACC_L = 0x000008, //8
+	EQP_ACC_R = 0x000080, //128
+	EQP_COSTUME_HEAD_TOP = 0x000400, //1024
+	EQP_COSTUME_HEAD_MID = 0x000800, //2048
+	EQP_COSTUME_HEAD_LOW = 0x001000, //4096
+	EQP_COSTUME_GARMENT = 0x002000, //8192
 	//UNUSED_COSTUME_FLOOR = 0x004000, //16384
-	EQP_AMMO               = 0x008000, //32768
-	EQP_SHADOW_ARMOR       = 0x010000, //65536
-	EQP_SHADOW_WEAPON      = 0x020000, //131072
-	EQP_SHADOW_SHIELD      = 0x040000, //262144
-	EQP_SHADOW_SHOES       = 0x080000, //524288
-	EQP_SHADOW_ACC_R       = 0x100000, //1048576
-	EQP_SHADOW_ACC_L       = 0x200000, //2097152
+	EQP_AMMO = 0x008000, //32768
+	EQP_SHADOW_ARMOR = 0x010000, //65536
+	EQP_SHADOW_WEAPON = 0x020000, //131072
+	EQP_SHADOW_SHIELD = 0x040000, //262144
+	EQP_SHADOW_SHOES = 0x080000, //524288
+	EQP_SHADOW_ACC_R = 0x100000, //1048576
+	EQP_SHADOW_ACC_L = 0x200000, //2097152
 };
 
 struct point {
 	unsigned short map;
-	short x,y;
+	short x, y;
 };
 
 enum e_skill_flag
@@ -313,65 +313,65 @@ enum e_skill_flag
 	SKILL_FLAG_PLAGIARIZED,
 	SKILL_FLAG_UNUSED,       ///< needed to maintain the order since the values are saved, can be renamed and used if a new flag is necessary
 	SKILL_FLAG_PERM_GRANTED, ///< Permanent, granted through someway (e.g. script).
-	/* */
-	/* MUST be the last, because with it the flag value stores a dynamic value (flag+lv) */
-	SKILL_FLAG_REPLACED_LV_0,   // Temporary skill overshadowing permanent skill of level 'N - SKILL_FLAG_REPLACED_LV_0',
+							 /* */
+							 /* MUST be the last, because with it the flag value stores a dynamic value (flag+lv) */
+							 SKILL_FLAG_REPLACED_LV_0,   // Temporary skill overshadowing permanent skill of level 'N - SKILL_FLAG_REPLACED_LV_0',
 };
 
 enum e_mmo_charstatus_opt {
-	OPT_NONE        = 0x0,
-	OPT_SHOW_EQUIP  = 0x1,
+	OPT_NONE = 0x0,
+	OPT_SHOW_EQUIP = 0x1,
 	OPT_ALLOW_PARTY = 0x2,
 };
 
 enum e_item_bound_type {
-	IBT_NONE      = 0x0,
-	IBT_MIN       = 0x1,
-	IBT_ACCOUNT   = 0x1,
-	IBT_GUILD     = 0x2,
-	IBT_PARTY     = 0x3,
+	IBT_NONE = 0x0,
+	IBT_MIN = 0x1,
+	IBT_ACCOUNT = 0x1,
+	IBT_GUILD = 0x2,
+	IBT_PARTY = 0x3,
 	IBT_CHARACTER = 0x4,
-	IBT_MAX       = 0x4,
+	IBT_MAX = 0x4,
 };
 
 enum {
-	OPTION_NOTHING      = 0x00000000,
-	OPTION_SIGHT        = 0x00000001,
-	OPTION_HIDE         = 0x00000002,
-	OPTION_CLOAK        = 0x00000004,
-	OPTION_FALCON       = 0x00000010,
-	OPTION_RIDING       = 0x00000020,
-	OPTION_INVISIBLE    = 0x00000040,
-	OPTION_ORCISH       = 0x00000800,
-	OPTION_WEDDING      = 0x00001000,
-	OPTION_RUWACH       = 0x00002000,
-	OPTION_CHASEWALK    = 0x00004000,
-	OPTION_FLYING       = 0x00008000, //Note that clientside Flying and Xmas are 0x8000 for clients prior to 2007.
-	OPTION_XMAS         = 0x00010000,
-	OPTION_TRANSFORM    = 0x00020000,
-	OPTION_SUMMER       = 0x00040000,
-	OPTION_DRAGON1      = 0x00080000,
-	OPTION_WUG          = 0x00100000,
-	OPTION_WUGRIDER     = 0x00200000,
-	OPTION_MADOGEAR     = 0x00400000,
-	OPTION_DRAGON2      = 0x00800000,
-	OPTION_DRAGON3      = 0x01000000,
-	OPTION_DRAGON4      = 0x02000000,
-	OPTION_DRAGON5      = 0x04000000,
-	OPTION_HANBOK       = 0x08000000,
-	OPTION_OKTOBERFEST  = 0x10000000,
+	OPTION_NOTHING = 0x00000000,
+	OPTION_SIGHT = 0x00000001,
+	OPTION_HIDE = 0x00000002,
+	OPTION_CLOAK = 0x00000004,
+	OPTION_FALCON = 0x00000010,
+	OPTION_RIDING = 0x00000020,
+	OPTION_INVISIBLE = 0x00000040,
+	OPTION_ORCISH = 0x00000800,
+	OPTION_WEDDING = 0x00001000,
+	OPTION_RUWACH = 0x00002000,
+	OPTION_CHASEWALK = 0x00004000,
+	OPTION_FLYING = 0x00008000, //Note that clientside Flying and Xmas are 0x8000 for clients prior to 2007.
+	OPTION_XMAS = 0x00010000,
+	OPTION_TRANSFORM = 0x00020000,
+	OPTION_SUMMER = 0x00040000,
+	OPTION_DRAGON1 = 0x00080000,
+	OPTION_WUG = 0x00100000,
+	OPTION_WUGRIDER = 0x00200000,
+	OPTION_MADOGEAR = 0x00400000,
+	OPTION_DRAGON2 = 0x00800000,
+	OPTION_DRAGON3 = 0x01000000,
+	OPTION_DRAGON4 = 0x02000000,
+	OPTION_DRAGON5 = 0x04000000,
+	OPTION_HANBOK = 0x08000000,
+	OPTION_OKTOBERFEST = 0x10000000,
 #ifndef NEW_CARTS
-	OPTION_CART1     = 0x00000008,
-	OPTION_CART2     = 0x00000080,
-	OPTION_CART3     = 0x00000100,
-	OPTION_CART4     = 0x00000200,
-	OPTION_CART5     = 0x00000400,
+	OPTION_CART1 = 0x00000008,
+	OPTION_CART2 = 0x00000080,
+	OPTION_CART3 = 0x00000100,
+	OPTION_CART4 = 0x00000200,
+	OPTION_CART5 = 0x00000400,
 	/*  compound constant for older carts */
-	OPTION_CART      = OPTION_CART1|OPTION_CART2|OPTION_CART3|OPTION_CART4|OPTION_CART5,
+	OPTION_CART = OPTION_CART1 | OPTION_CART2 | OPTION_CART3 | OPTION_CART4 | OPTION_CART5,
 #endif
 	// compound constants
-	OPTION_DRAGON    = OPTION_DRAGON1|OPTION_DRAGON2|OPTION_DRAGON3|OPTION_DRAGON4|OPTION_DRAGON5,
-	OPTION_COSTUME   = OPTION_WEDDING|OPTION_XMAS|OPTION_SUMMER|OPTION_HANBOK|OPTION_OKTOBERFEST,
+	OPTION_DRAGON = OPTION_DRAGON1 | OPTION_DRAGON2 | OPTION_DRAGON3 | OPTION_DRAGON4 | OPTION_DRAGON5,
+	OPTION_COSTUME = OPTION_WEDDING | OPTION_XMAS | OPTION_SUMMER | OPTION_HANBOK | OPTION_OKTOBERFEST,
 };
 
 struct s_skill {
@@ -381,7 +381,7 @@ struct s_skill {
 };
 
 struct script_reg_state {
-	unsigned int type   : 1;/* because I'm a memory hoarder and having them in the same struct would be a 8-byte/instance waste while ints outnumber str on a 10000-to-1 ratio. */
+	unsigned int type : 1;/* because I'm a memory hoarder and having them in the same struct would be a 8-byte/instance waste while ints outnumber str on a 10000-to-1 ratio. */
 	unsigned int update : 1;/* whether it needs to be sent to char server for insertion/update/delete */
 };
 
@@ -437,7 +437,7 @@ struct s_homunculus { //[orn]
 	int char_id;
 	short class_;
 	short prev_class;
-	int hp,max_hp,sp,max_sp;
+	int hp, max_hp, sp, max_sp;
 	unsigned int intimacy;
 	short hunger;
 	struct s_skill hskill[MAX_HOMUNSKILL]; //albator
@@ -504,18 +504,18 @@ struct mmo_charstatus {
 	int mother;
 	int child;
 
-	unsigned int base_exp,job_exp;
+	unsigned int base_exp, job_exp;
 	int zeny;
 	int bank_vault;
 
 	short class_;
-	unsigned int status_point,skill_point;
-	int hp,max_hp,sp,max_sp;
+	unsigned int status_point, skill_point;
+	int hp, max_hp, sp, max_sp;
 	unsigned int option;
 	short manner; // Defines how many minutes a char will be muted, each negative point is equivalent to a minute.
 	unsigned char karma;
-	short hair,hair_color,clothes_color;
-	int party_id,guild_id,pet_id,hom_id,mer_id,ele_id;
+	short hair, hair_color, clothes_color;
+	int party_id, guild_id, pet_id, hom_id, mer_id, ele_id;
 	int fame;
 
 	// Mercenary Guilds Rank
@@ -525,19 +525,19 @@ struct mmo_charstatus {
 
 	short weapon; // enum weapon_type
 	short shield; // view-id
-	short head_top,head_mid,head_bottom;
+	short head_top, head_mid, head_bottom;
 	short robe;
 
 	char name[NAME_LENGTH];
-	unsigned int base_level,job_level;
-	short str,agi,vit,int_,dex,luk;
-	unsigned char slot,sex;
+	unsigned int base_level, job_level;
+	short str, agi, vit, int_, dex, luk;
+	unsigned char slot, sex;
 
 	uint32 mapip;
 	uint16 mapport;
 
-	struct point last_point,save_point,memo_point[MAX_MEMOPOINTS];
-	struct item inventory[MAX_INVENTORY],cart[MAX_CART];
+	struct point last_point, save_point, memo_point[MAX_MEMOPOINTS];
+	struct item inventory[MAX_INVENTORY], cart[MAX_CART];
 	struct storage_data storage;
 	struct s_skill skill[MAX_SKILL];
 
@@ -552,7 +552,7 @@ struct mmo_charstatus {
 	time_t delete_date;
 
 	/* `account_data` modifiers */
-	unsigned short mod_exp,mod_drop,mod_death;
+	unsigned short mod_exp, mod_drop, mod_death;
 
 	unsigned char font;
 
@@ -616,7 +616,7 @@ struct party_member {
 	unsigned short map;
 	unsigned short lv;
 	unsigned leader : 1,
-	         online : 1;
+		online : 1;
 };
 
 struct party {
@@ -624,17 +624,17 @@ struct party {
 	char name[NAME_LENGTH];
 	unsigned char count; //Count of online characters.
 	unsigned exp : 1,
-				item : 2; //&1: Party-Share (round-robin), &2: pickup style: shared.
+		item : 2; //&1: Party-Share (round-robin), &2: pickup style: shared.
 	struct party_member member[MAX_PARTY];
 };
 
 struct map_session_data;
 struct guild_member {
 	int account_id, char_id;
-	short hair,hair_color,gender,class_,lv;
+	short hair, hair_color, gender, class_, lv;
 	uint64 exp;
 	int exp_payper;
-	short online,position;
+	short online, position;
 	char name[NAME_LENGTH];
 	struct map_session_data *sd;
 	unsigned char modified;
@@ -660,7 +660,7 @@ struct guild_expulsion {
 };
 
 struct guild_skill {
-	int id,lv;
+	int id, lv;
 };
 
 struct channel_data;
@@ -670,11 +670,11 @@ struct guild {
 	uint64 exp;
 	unsigned int next_exp;
 	int skill_point;
-	char name[NAME_LENGTH],master[NAME_LENGTH];
+	char name[NAME_LENGTH], master[NAME_LENGTH];
 	struct guild_member member[MAX_GUILD];
 	struct guild_position position[MAX_GUILDPOSITION];
-	char mes1[MAX_GUILDMES1],mes2[MAX_GUILDMES2];
-	int emblem_len,emblem_id;
+	char mes1[MAX_GUILDMES1], mes2[MAX_GUILDMES2];
+	int emblem_len, emblem_id;
 	char emblem_data[2048];
 	struct guild_alliance alliance[MAX_GUILDALLIANCE];
 	struct guild_expulsion expulsion[MAX_GUILDEXPULSION];
@@ -720,25 +720,25 @@ struct fame_list {
 
 enum fame_list_type {
 	RANKTYPE_BLACKSMITH = 0,
-	RANKTYPE_ALCHEMIST  = 1,
-	RANKTYPE_TAEKWON    = 2,
-	RANKTYPE_PK         = 3, //Not supported yet
+	RANKTYPE_ALCHEMIST = 1,
+	RANKTYPE_TAEKWON = 2,
+	RANKTYPE_PK = 3, //Not supported yet
 };
 
 /**
- * Guild Basic Information
- * It is used to request changes via intif_guild_change_basicinfo in map-server and to
- * signalize changes made in char-server via mapif_parse_GuildMemberInfoChange
- **/
+* Guild Basic Information
+* It is used to request changes via intif_guild_change_basicinfo in map-server and to
+* signalize changes made in char-server via mapif_parse_GuildMemberInfoChange
+**/
 enum guild_basic_info {
 	GBI_EXP = 1,    ///< Guild Experience (EXP)
 	GBI_GUILDLV,    ///< Guild level
 	GBI_SKILLPOINT, ///< Guild skillpoints
 
-	/**
-	 * Changes a skill level, struct guild_skill should be sent.
-	 * All checks regarding max skill level should be done in _map-server_
-	 **/
+					/**
+					* Changes a skill level, struct guild_skill should be sent.
+					* All checks regarding max skill level should be done in _map-server_
+					**/
 	GBI_SKILLLV,    ///< Guild skill_lv
 };
 
@@ -755,26 +755,27 @@ enum { //Change Member Infos
 enum guild_permission { // Guild permissions
 	GPERM_INVITE = 0x01,
 	GPERM_EXPEL = 0x10,
-	GPERM_BOTH = GPERM_INVITE|GPERM_EXPEL,
+	GPERM_BOTH = GPERM_INVITE | GPERM_EXPEL,
 };
 
 enum {
-	GD_SKILLBASE=10000,
-	GD_APPROVAL=10000,
-	GD_KAFRACONTRACT=10001,
-	GD_GUARDRESEARCH=10002,
-	GD_GUARDUP=10003,
-	GD_EXTENSION=10004,
-	GD_GLORYGUILD=10005,
-	GD_LEADERSHIP=10006,
-	GD_GLORYWOUNDS=10007,
-	GD_SOULCOLD=10008,
-	GD_HAWKEYES=10009,
-	GD_BATTLEORDER=10010,
-	GD_REGENERATION=10011,
-	GD_RESTORE=10012,
-	GD_EMERGENCYCALL=10013,
-	GD_DEVELOPMENT=10014,
+	GD_SKILLBASE = 10000,
+	GD_APPROVAL = 10000,
+	GD_KAFRACONTRACT = 10001,
+	GD_GUARDRESEARCH = 10002,
+	GD_GUARDUP = 10003,
+	GD_EXTENSION = 10004,
+	GD_GLORYGUILD = 10005,
+	GD_LEADERSHIP = 10006,
+	GD_GLORYWOUNDS = 10007,
+	GD_SOULCOLD = 10008,
+	GD_HAWKEYES = 10009,
+	GD_BATTLEORDER = 10010,
+	GD_REGENERATION = 10011,
+	GD_RESTORE = 10012,
+	GD_EMERGENCYCALL = 10013,
+	GD_DEVELOPMENT = 10014,
+	GD_ITEMEMERGENCYCALL=10015,
 	GD_MAX,
 };
 
@@ -980,7 +981,7 @@ enum weapon_type {
 };
 
 enum ammo_type {
-	A_ARROW        = 1,
+	A_ARROW = 1,
 	A_DAGGER,      //2
 	A_BULLET,      //3
 	A_SHELL,       //4
@@ -992,11 +993,11 @@ enum ammo_type {
 };
 
 enum e_char_server_type {
-	CST_NORMAL      = 0,
+	CST_NORMAL = 0,
 	CST_MAINTENANCE = 1,
-	CST_OVER18      = 2,
-	CST_PAYING      = 3,
-	CST_F2P         = 4,
+	CST_OVER18 = 2,
+	CST_PAYING = 3,
+	CST_F2P = 4,
 };
 
 enum e_pc_reg_loading {
@@ -1004,31 +1005,31 @@ enum e_pc_reg_loading {
 	PRL_CHAR = 0x1,
 	PRL_ACCL = 0x2,/* local */
 	PRL_ACCG = 0x4,/* global */
-	PRL_ALL  = 0xFF,
+	PRL_ALL = 0xFF,
 };
 
 /**
- * Values to be used as operation_type in chrif_char_ask_name
- */
+* Values to be used as operation_type in chrif_char_ask_name
+*/
 enum zh_char_ask_name_type {
-	CHAR_ASK_NAME_BLOCK         = 1, // account block
-	CHAR_ASK_NAME_BAN           = 2, // account ban
-	CHAR_ASK_NAME_UNBLOCK       = 3, // account unblock
-	CHAR_ASK_NAME_UNBAN         = 4, // account unban
-	CHAR_ASK_NAME_CHANGESEX     = 5, // change sex
-	CHAR_ASK_NAME_CHARBAN       = 6, // character ban
-	CHAR_ASK_NAME_CHARUNBAN     = 7, // character unban
+	CHAR_ASK_NAME_BLOCK = 1, // account block
+	CHAR_ASK_NAME_BAN = 2, // account ban
+	CHAR_ASK_NAME_UNBLOCK = 3, // account unblock
+	CHAR_ASK_NAME_UNBAN = 4, // account unban
+	CHAR_ASK_NAME_CHANGESEX = 5, // change sex
+	CHAR_ASK_NAME_CHARBAN = 6, // character ban
+	CHAR_ASK_NAME_CHARUNBAN = 7, // character unban
 	CHAR_ASK_NAME_CHANGECHARSEX = 8, // change character sex
 };
 
 /**
- * Values to be used as answer in chrig_char_ask_name_answer
- */
+* Values to be used as answer in chrig_char_ask_name_answer
+*/
 enum hz_char_ask_name_answer {
-	CHAR_ASK_NAME_ANS_DONE     = 0, // login-server request done
+	CHAR_ASK_NAME_ANS_DONE = 0, // login-server request done
 	CHAR_ASK_NAME_ANS_NOTFOUND = 1, // player not found
-	CHAR_ASK_NAME_ANS_GMLOW    = 2, // gm level too low
-	CHAR_ASK_NAME_ANS_OFFLINE  = 3, // login-server offline
+	CHAR_ASK_NAME_ANS_GMLOW = 2, // gm level too low
+	CHAR_ASK_NAME_ANS_OFFLINE = 3, // login-server offline
 };
 
 /* packet size constant for itemlist */
